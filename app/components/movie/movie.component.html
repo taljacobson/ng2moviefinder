@@ -12,7 +12,11 @@
         <ul class="list-group">
           <li class="list-group-item"> GENRE: <span *ngFor="let genre of movie.genres">{{genre.name}}, </span></li>
           <li class="list-group-item"> Release date : {{movie.release_date}}</li>
-          <li class="list-group-item"> Budget: {{movie.budget | currency}}</li>
+          <div *ngIf="(movie.budget != '0.00') && (movie.revenue != '0.00')">
+            <li class="list-group-item"> Budget: {{movie.budget | currency:'USD':true:'1.2-2'}}</li>
+            <li class="list-group-item"> Revenue: {{movie.revenue | currency:'USD':true:'1.2-2'}}</li>
+            <li class="list-group-item"> Profit: {{movie.revenue - movie.budget | currency:'USD':true:'1.2-2'}}</li>
+          </div>
         </ul>
         <h4>{{movie.overview}}</h4>
         <a *ngIf="movie.homepage" href="{{movie.homepage}}" target="_blank" class="btn btn-default"> visit Movie homepage</a>
