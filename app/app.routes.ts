@@ -1,4 +1,6 @@
+import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
 import { MoviesComponent } from "./components/movies/movies.component";
 import { MovieComponent } from "./components/movie/movie.component";
 
@@ -7,4 +9,4 @@ const AppRoutes: Routes = [
   {path: 'movie/:id', component: MovieComponent}
 ]
 
-export const routing = RouterModule.forRoot(AppRoutes);
+export const routing: ModuleWithProviders = RouterModule.forRoot(AppRoutes);
