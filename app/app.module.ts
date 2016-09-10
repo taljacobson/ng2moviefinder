@@ -1,9 +1,8 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { JSONP_PROVIDERS } from "@angular/http";
+import { JsonpModule } from "@angular/http";
 import { FormsModule } from "@angular/forms";
-
-import { RouterModule, ROUTER_DIRECTIVES} from "@angular/router";
+import { RouterModule } from "@angular/router";
 
 import { routing }        from './app.routes';
 
@@ -18,6 +17,7 @@ import { MovieService } from "./services/movie.service";
   imports: [
             BrowserModule,
             FormsModule ,
+            JsonpModule,
             routing
           ],
   declarations: [
@@ -26,8 +26,7 @@ import { MovieService } from "./services/movie.service";
             MovieComponent
           ],
   providers: [
-            MovieService,
-            JSONP_PROVIDERS
+            MovieService
           ],
   bootstrap: [ AppComponent ]
 })
